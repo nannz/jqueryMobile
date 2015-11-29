@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <script>
+        //on iphone, the ip address is 172.26.104.236:8888
+
+        $(document).on("mobileinit",function(event){
+            console.log("mobileinit");
+        });//this one doesn't work
+        $(document).on("pagechange",function(event){
+            console.log("pagechange:"+event.currentTarget.URL);
+        });
+        $(window).on("orientationchange", function(event){
+            $('#orientation').text('This device is in' + event.orientation + 'mode.'); //a div with this id
+        })
+    </script>
+</head>
+<body>
+<div data-role="page" id="main">
+    <div data-role="header">
+        <a href="index.html" class="ui-btn-left ui-btn ui-btn-inline ui-btn-icon-left ui-icon-back">Back</a>
+        <h1>External Header</h1>
+        <button class="ui-btn-right ui-btn ui-btn-inline ui-btn-icon-right ui-icon-save">Save</button>
+    </div>
+
+    <div class="ui-content">
+       <p>This is an external page</p>
+        <ul data-role="listview" data-inset="true">
+            <li data-icon="camera">Camera</li>
+            <li data-icon="gear">Gear</li>
+            <li data-icon="info">Info</li>
+        </ul>
+        <br/>
+        <button class="ui-btn ui-shadow">Button</button>
+        <br/>
+        <ul data-role="listview">
+            <li data-icon="camera"><a href="#">Camera</a></li>
+            <li data-icon="gear"><a href="#">Gear</a></li>
+            <li data-icon="info"><a href="#">Info</a></li>
+        </ul>
+       </div>
+    </div>
+
+    <div string ="footer">
+        <h4>External Footer</h4>
+    </div>
+</div>
+
+
+
+</body>
+</html>

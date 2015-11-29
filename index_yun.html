@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yun</title>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+        $.ajax({
+            url: "http://10.208.7.10/arduino/analog/2",
+            dataType: 'jsonp'
+        }).done(function(data) {
+            $( 'body' ).append(data);
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

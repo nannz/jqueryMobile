@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <script>
+        //on iphone, the ip address is 172.26.104.236:8888
+
+        $(document).on("mobileinit",function(event){
+            console.log("mobileinit");
+        });//this one doesn't work
+        $(document).on("pagechange",function(event){
+            console.log("pagechange:"+event.currentTarget.URL);
+        });
+        $(window).on("orientationchange", function(event){
+            $('#orientation').text('This device is in' + event.orientation + 'mode.'); //a div with this id
+        })//hahahahahahhahaha
+    </script>
+</head>
+<body>
+    <div data-role = "page" id = "main">
+        <div data-role="header">
+            <h1>my header h1</h1>
+        </div>
+
+        <div class="ui-content">
+            <p id = "orientation"></p>
+            <p>Page content goes here.</p>
+            <p><a href = "#internal">View an internal page</a></p>
+            <p><a href = "external_index.html">View an external page</a></p>
+            <p><a href = "#dialog" data-transition="pop">View a dialog</a></p>
+            <p><a href = "#panel" >View a panel</a></p>
+        </div>
+
+
+        <div data-role="panel" id="panel">
+            <p>This is a panel.</p>
+            <p><a href="index.html" data-rel="close" >Close</a></p>
+        </div>
+
+        <div data-role="footer">
+            <h4>Footer</h4>
+        </div>
+    </div>
+
+    <div data-role="page" id="internal">
+        <h1>Another page! this is h1</h1>
+        <p>This is a paragraph</p>
+        <p><a href = "#main">Go back!</a></p>
+    </div>
+
+    <div data-role="page" data-dialog="true" id="dialog">
+        <p>Dialog page.</p>
+        <p><a href="index.html" data-transition="pop">Close</a></p>
+    </div>
+
+</body>
+</html>
